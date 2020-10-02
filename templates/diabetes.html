@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<section>
+   <div class="container">
+
+   </div>
+</section>
+
+
+<!-- creating a form -->
+
+<section>
+    <div class="container">
+        <form action="/diabetes/test " method="POST" style="border: 2px solid black; padding: 5px;" >
+            {% csrf_token %}
+            
+            <div class="row">
+                <div class="col-md-6 my-2">
+                    <input type="text" class="form-control" name="name" placeholder="Your name" required>
+                </div>
+                <div class="col-md-6 my-2">
+                    <input type="text" class="form-control" name="age" placeholder="Your Age" required>
+                </div>
+                <div class="col-md-6 my-2">
+                    <input type="number" class="form-control" name="bp" placeholder="Blood Pressure(60-120)" required>
+                </div>
+                
+                <div class="col-md-6 my-2">
+                    <input type="number" class="form-control" name="glucose" placeholder="Glucose level(70-200)" required>
+                </div>
+                <div class="col-md-6 my-2">
+                    <input type="number" class="form-control" name="skin" placeholder="Skin Thickness(0-50)" required>
+                </div>
+                <div class="col-md-6 my-2">
+                    <input type="text" class="form-control" name="bmi" placeholder="BMI(0.0-50.0)" required>
+                </div>
+                <div class="col-md-6 my-2">
+                    <input type="text" class="form-control" name="preg" placeholder="Pregnency(0-10)" required>
+                </div>
+                <div class="col-md-6 my-2">
+                    <input type="text" class="form-control" name="insulin" placeholder="insulin(0-600)" required>
+                </div>
+                <div class="col-md-6 my-2">
+                    <input type="text" class="form-control" name="diab" placeholder="DiabetesPedigreeFunction(0.0-1.0)" required>
+                </div>
+                 <input type="hidden" class="hidden" name="distype" value="diabetes">
+            </div>
+            <button class="btn btn-primary mt-4" type="submit">Submit</button>
+
+
+          </form>
+    </div>
+</section>
+{% endblock body %}
