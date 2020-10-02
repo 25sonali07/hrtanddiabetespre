@@ -1,28 +1,37 @@
 {% extends 'base.html' %}
 
-
-
+{% block title %}Home
+{% endblock title %}
+{% block Home %}active
+{% endblock Home %}
 
 {% block body %}
-<div class="container">
+
+<section style="background-color: goldenrod;">
+  <div class="container py-5">
+    <h2>Welcome to our website</h2>
+  </div>
+</section>
+
+<div class="container my-5">
     <div class="row">
         <div class="col-md-6">
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="/heart" class="btn btn-primary">Heart</a>
+                <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/11/12/13/08/heart-care-1040229__340.png" alt="Card image cap">
+                <div class="card-body text-white" style="background: #000;">
+                  <h5 class="card-title">Heart Disease</h5>
+                  <p class="card-text">You can check about your Heart score here.</p>
+                  <a href="/heart" class="btn btn-primary">Check Score</a>
                 </div>
               </div>
         </div>
         <div class="col-md-6">
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="/diabetes" class="btn btn-primary">Diabetes</a>
+                <img class="card-img-top" src="https://cdn.pixabay.com/photo/2018/05/24/10/16/diabetes-3426247__340.jpg" alt="Card image cap">
+                <div class="card-body text-white" style="background: #000;">
+                  <h5 class="card-title">Diabetes Disease</h5>
+                  <p class="card-text">You can check about your diabetes score here.</p>
+                  <a href="/diabetes" class="btn btn-primary">Check score</a>
                 </div>
               </div>
         </div>
