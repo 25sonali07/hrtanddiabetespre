@@ -7,16 +7,20 @@
 {% endblock Heart %}
 
 {% block body %}
-<section>
-
+<section style="background-color: goldenrod;">
+    <div class="container py-5">
+        <h2>Welcome to our website</h2>
+    </div>
 </section>
 
 
 <!-- creating a form -->
 
-<section>
-    <div class="container my-5">
-        <form action="/heart/test " method="POST" style="border: 2px solid black; padding: 20px; border-top: 30px solid red; border-bottom: 30px solid red;">
+<section style="background: rgb(61, 61, 61)">
+    <div class="container py-5 text-white">
+        <h4>Please fill the form to view your result. Fill the values according to the range given in bracket.</h4>
+        <form action="/heart/test " method="POST"
+            style="border: 2px solid black; padding: 20px; border-top: 30px solid red; border-bottom: 30px solid red;">
             {% csrf_token %}
             <div class="row">
                 <div class="col-md-6 my-2">
@@ -33,10 +37,12 @@
                     <input type="number" class="form-control" name="chol" placeholder="Cholestrol(100-120)" required>
                 </div>
                 <div class="col-md-6 my-2">
-                    <input type="number" class="form-control" name="beat" placeholder="Heart Beat Rate(120-160) For 2 minutes" required>
+                    <input type="number" class="form-control" name="beat"
+                        placeholder="Heart Beat Rate(120-160) For 2 minutes" required>
                 </div>
                 <div class="col-md-6 my-2">
-                    <input type="number" class="form-control" name="oldpeak" placeholder="Depression value(0.0-6.0)" required>
+                    <input type="text" class="form-control" name="oldpeak" placeholder="Depression value(0.0-6.0)"
+                        required>
                 </div>
                 <div class="col-md-6 my-2">
                     <select class="form-control" id="exampleFormControlSelect2" name="cp">
@@ -82,34 +88,33 @@
                 <div class="col-md-6 my-2">
                     <select class="form-control" name="restecg">
                         <option value="0">Resting electrocardiographic results</option>
-                        <option value="0">Low</option>
+                        <option value="0">Normal</option>
                         <option value="1">Moderate</option>
-                        <option value="2">High</option>
+                        <option value="2">Not Stable</option>
                     </select>
                 </div>
                 <div class="col-md-6 my-2">
                     <select class="form-control" name="fbs">
                         <option value="0">Fasting blood sugar > 120 mg/dl</option>
-                        <option value="0">Low</option>
-                        <option value="1">High</option>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
                     </select>
                 </div>
-                <div class="col-md-4">
-                    <label for="fever">Choose Your Gender: </label>
-                    <div class="custom-control custom-radio">
-                        <input type="radio" id="customRadio1" name="gender" class="custom-control-input" value="0"
-                            required>
-                        <label class="custom-control-label" for="customRadio1">Male</label>
-                    </div>
-                    <div class="custom-control custom-radio">
-                        <input type="radio" id="customRadio2" name="gender" class="custom-control-input" value="1"
-                            required>
-                        <label class="custom-control-label" for="customRadio2">Female</label>
-                    </div>
+            </div>
+            <div class="form-group">
+                <label for="fever">Choose Your Gender: </label>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio1" name="gender" class="custom-control-input" value="0" required>
+                    <label class="custom-control-label" for="customRadio1">Male</label>
                 </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio2" name="gender" class="custom-control-input" value="1" required>
+                    <label class="custom-control-label" for="customRadio2">Female</label>
+                </div>
+
                 <input type="hidden" name="distype" value="heart">
             </div>
-            <button class="btn btn-primary mt-4" type="submit">Submit</button>
+            <button class="btn btn-danger mt-4" type="submit">Check Yourself</button>
         </form>
     </div>
 </section>

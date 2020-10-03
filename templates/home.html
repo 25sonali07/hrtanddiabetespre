@@ -13,28 +13,60 @@
   </div>
 </section>
 
-<div class="container my-5">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/11/12/13/08/heart-care-1040229__340.png" alt="Card image cap">
-                <div class="card-body text-white" style="background: #000;">
-                  <h5 class="card-title">Heart Disease</h5>
-                  <p class="card-text">You can check about your Heart score here.</p>
-                  <a href="/heart" class="btn btn-primary">Check Score</a>
-                </div>
-              </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://cdn.pixabay.com/photo/2018/05/24/10/16/diabetes-3426247__340.jpg" alt="Card image cap">
-                <div class="card-body text-white" style="background: #000;">
-                  <h5 class="card-title">Diabetes Disease</h5>
-                  <p class="card-text">You can check about your diabetes score here.</p>
-                  <a href="/diabetes" class="btn btn-primary">Check score</a>
-                </div>
-              </div>
-        </div>
+<!-- Covid Cases  -->
+<section style="background-color: red;">
+  <div class="container py-5">
+    <h3>Covid Cases in India: </h3>
+    <div class="row text-white py-3 px-2" style="border: 2px solid white; border-radius: 20px;">
+      <div class="col-md-3">
+        <h4>Confirmed Cases</h4>
+        <h5>{{confirmed}}</h5>
+      </div>
+      <div class="col-md-3">
+        <h4>Active Cases</h4>
+        <h5>{{active}}</h5>
+      </div>
+      <div class="col-md-3">
+        <h4>Recovered Cases</h4>
+        <h5>{{recovered}}</h5>
+      </div>
+      <div class="col-md-3">
+        <h4>Deaths</h4>
+        <h5>{{death}}</h5>
+      </div>
     </div>
-</div>
+  </div>
+</section>
+
+<!-- Disease Card  -->
+<section style="background: rgb(61, 61, 61)">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/11/12/13/08/heart-care-1040229__340.png"
+            alt="Card image cap">
+          <div class="card-body text-white" style="background: #000;">
+            <h5 class="card-title">Heart Disease</h5>
+            <p class="card-text">You can check about your Heart score here.</p>
+            <a href="/heart" class="btn btn-primary">Check Score</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="https://cdn.pixabay.com/photo/2018/05/24/10/16/diabetes-3426247__340.jpg"
+            alt="Card image cap">
+          <div class="card-body text-white" style="background: #000;">
+            <h5 class="card-title">Diabetes Disease</h5>
+            <p class="card-text">You can check about your diabetes score here.</p>
+            <a href="/diabetes" class="btn btn-primary">Check score</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock body %}

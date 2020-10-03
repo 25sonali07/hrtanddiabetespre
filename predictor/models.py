@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime   
 
 # Create your models here.
 
@@ -20,11 +21,13 @@ class Heart(models.Model):
         thal = models.CharField(max_length=50)
         probability = models.CharField(max_length=50)
         result = models.CharField(max_length=50)
+        timestamp = models.DateTimeField(default=datetime.now)
     
         def __str__(self):
             return self.name+" ..."
         
 class Diabetes(models.Model):
+        sno = models.AutoField(primary_key=True)
         name = models.CharField(max_length=50)
         age = models.CharField(max_length=50)
         bp = models.CharField(max_length=50)
@@ -36,6 +39,17 @@ class Diabetes(models.Model):
         diab = models.CharField(max_length=50)
         probability = models.CharField(max_length=50)
         result = models.CharField(max_length=50)
+        timestamp = models.DateTimeField(default=datetime.now)
     
         def __str__(self):
             return self.name+" ..."
+
+class Feedback(models.Model):
+    sno = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=50)
+    email = models.CharField(max_length=50)
+    message = models.CharField(max_length=50)
+    timestamp = models.DateTimeField(default=datetime.now)
+
+    def __str__(self):
+        return self.name+" ..."

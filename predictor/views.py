@@ -1,12 +1,29 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 import pickle
 from statistics import mean,mode
-from . models import Heart, Diabetes
+from . models import Heart, Diabetes, Feedback
+import json, requests
+from django.contrib import messages
 
 
 # Create your views here.
+
+def getdata(url):
+    r= requests.get(url)
+    return json.loads(r.text)
+
 def home(request):
-    return render(request,"home.html")
+    url = "https://covid19.mathdro.id/api/"
+    data = getdata(url)
+
+    sConfirmed = data['confirmed']['value']
+    sRecovered = data['recovered']['value']
+    sDeath = data['deaths']['value']
+    sActive = sConfirmed-sRecovered-sDeath
+
+    data = {'active':sActive, 'confirmed':sConfirmed, 'recovered': sRecovered, 'death':sDeath}
+
+    return render(request,"home.html", data)
 
 def heart(request):    
     return render(request,"heart.html")
@@ -38,11 +55,26 @@ def diaTest(request):
             res=clf.predict([feature1])[0]
             result.append(res)
             proba.append(info1)
-        final_prob=mean(proba)
-        final_res = mode(result)
 
-        data = {'name':name, 'age': age, 'bp': bp, 'glucose': glucose, 'skin': skin, 'bmi':bmi , 'pregnancies': pregnancies, 'insulin':insulin, 'diab':diab, 'distype':distype, 'proba':final_prob, 'result':final_res}
+        final_prob=mean(proba)
+        final_prob=round(final_prob,2)*100
+        final_res = mode(result)
+        # Fixing Graph Values 
+        graph = [{'accuracy':80.0,'score':69.3, 'algo':'KNN'},{'accuracy':70.0,'score':79.3, 'algo':'Logistic'},{'accuracy':60.0,'score':89.3, 'algo':'Random Forest'}]
+
+        # Saving in database 
+        diabetes = Diabetes(name=name, age=age, bp=bp, glucose=glucose, skin=skin, bmi=bmi, pregnancies=pregnancies, insulin=insulin, diab=diab, probability=final_prob, result=final_res)
+        diabetes.save()
+
+        data = {'name':name, 'age': age, 'bp': bp, 'glucose': glucose, 'skin': skin, 'bmi':bmi , 'pregnancies': pregnancies, 'insulin':insulin, 'diab':diab, 'distype':distype, 'proba':final_prob, 'result':final_res, 'graph':graph}
+
+        if final_res==0:
+            messages.success(request, 'You have less chance of diabetes problem !! ')
+        else:
+            messages.error(request, "You have chances of diabetes problem... Please contact your doctor as soon as possible.")
+
         return render(request,"result.html", data)
+
     return HttpResponse('Error')
 
 def heartTest(request):
@@ -74,10 +106,39 @@ def heartTest(request):
             res=clf.predict([feature1])[0]
             result.append(res)
             proba.append(info1)
+            
         final_prob=mean(proba)
+        final_prob=round(final_prob,2)*100
         final_res = mode(result)
-        print(final_prob, final_res)
+        # Fixing Graph Values 
+        graph = [{'accuracy':80.0,'score':69.3, 'algo':'KNN'},{'accuracy':70.0,'score':79.3, 'algo':'Logistic'},{'accuracy':60.0,'score':89.3, 'algo':'Random Forest'}]
 
-        data = {'name':name, 'age': age, 'gender': gender, 'cp': cp, 'bp': bp, 'chol': chol, 'fbs': fbs, 'restecg':restecg , 'beat': beat, 'exang':exang, 'oldpeak':oldpeak, 'slope':slope, 'ca':ca, 'thal':thal,'distype':distype, 'proba':final_prob, 'result':final_res}
+         # Saving in database
+        heart = Heart(name=name, age=age, gender=gender, cp=cp, bp=bp, chol=chol, fbs=fbs, restecg=restecg, beat=beat, exang=exang, oldpeak=oldpeak, slope=slope, ca=ca, thal=thal, probability=final_prob, result=final_res)
+        heart.save()
+
+        data = {'name':name, 'age': age, 'gender': gender, 'cp': cp, 'bp': bp, 'chol': chol, 'fbs': fbs, 'restecg':restecg , 'beat': beat, 'exang':exang, 'oldpeak':oldpeak, 'slope':slope, 'ca':ca, 'thal':thal,'distype':distype, 'proba':final_prob, 'result':final_res, 'graph':graph}
+
+        if final_res==0:
+            messages.success(request, 'You have less chance of heart problem !! ')
+        else:
+            messages.error(request, "You have chances of heart problem... Please contact your doctor as soon as possible.")
         return render(request,"result.html", data)
+
     return HttpResponse('Error')
+
+def contact(request):
+    if request.method=='POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        message = request.POST['message']
+
+        feedback = Feedback(name=name, email=email, message=message)
+        feedback.save()
+
+        messages.success(request, 'Thanks for your valuable feedback !!')
+        return redirect('home')
+
+    messages.error(request, 'OOPS !! We have some error in our system... Please try again after sometime')
+    return HttpResponse('Error')
+

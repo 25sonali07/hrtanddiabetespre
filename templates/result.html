@@ -3,116 +3,124 @@
 {% block title %}Result{% endblock title %}
 
 {% block body %}
+<style>
+    .card-body {
+        border: 5px solid black;
+        border-radius: 30px;
+    }
+</style>
 <div class="container my-5">
+    <h4 class="my-3" style="text-align: center; text-decoration: underline;">Your Result: </h4>
     {% if distype == 'heart' %}
     <!-- For heart  -->
     <div class="card">
         <div class="card-body">
             <div class="row">
-                <div class="col-md-4">
-                    <h5>Name : </h3> 
-                </div>
-                <div class="col-md-2">
-                    <h5>{{name}}</h3>
+                <div class="col-md-8">
+                    <h4>Name : </h4>
                 </div>
                 <div class="col-md-4">
-                    <h5>Age : </h3> 
+                    <h5 style="color:red">{{name}}</h5>
                 </div>
-                <div class="col-md-2">
-                    <h5>{{age}}</h3>
-                </div>
-                <div class="col-md-4">
-                    <h5>Blood Pressure : </h3> 
-                </div>
-                <div class="col-md-2">
-                    <h5>{{bp}}</h3>
+                <div class="col-md-8">
+                    <h4>Age : </h4>
                 </div>
                 <div class="col-md-4">
-                    <h5>Cholestrol : </h3> 
+                    <h5 style="color:red">{{age}}</h5>
                 </div>
-                <div class="col-md-2">
-                    <h5>{{chol}}</h3>
-                </div>
-                <div class="col-md-4">
-                    <h5>Heart Beat : </h3> 
-                </div>
-                <div class="col-md-2">
-                    <h5>{{beat}}</h3>
+                <div class="col-md-8">
+                    <h4>Blood Pressure : </h4>
                 </div>
                 <div class="col-md-4">
-                    <h5>Gender : </h3> 
+                    <h5 style="color:red">{{bp}}</h5>
                 </div>
-                <div class="col-md-2">
-                    <h5>{{gender}}</h3>
-                </div>
-                <div class="col-md-4">
-                    <h5>Chest Pain : </h3> 
-                </div>
-                <div class="col-md-2">
-                    <h5>{{cp}}</h3>
+                <div class="col-md-8">
+                    <h4>Cholestrol : </h4>
                 </div>
                 <div class="col-md-4">
-                    <h5>Exercise induced angina : </h3> 
+                    <h5 style="color:red">{{chol}}</h5>
                 </div>
-                <div class="col-md-2">
-                    <h5>{{exang}}</h3>
-                </div>
-                <div class="col-md-4">
-                    <h5>Depression Value : </h3> 
-                </div>
-                <div class="col-md-2">
-                    <h5>{{oldpeak}}</h3>
+                <div class="col-md-8">
+                    <h4>Heart Beat : </h4>
                 </div>
                 <div class="col-md-4">
-                    <h5>Vessels colored by flourosopy : </h3> 
+                    <h5 style="color:red">{{beat}}</h5>
                 </div>
-                <div class="col-md-2">
-                    <h5>{{ca}}</h3>
-                </div>
-                <div class="col-md-4">
-                    <h5>Thal Value : </h3> 
-                </div>
-                <div class="col-md-2">
-                    <h5>{{thal}}</h3>
+                <div class="col-md-8">
+                    <h4>Gender : </h4>
                 </div>
                 <div class="col-md-4">
-                    <h5>Fasting blood sugar > 120 mg/dl : </h3> 
+                    <h5 style="color:red">{{gender}}</h5>
                 </div>
-                <div class="col-md-2">
-                    <h5>{{fbs}}</h3>
-                </div>
-                <div class="col-md-4">
-                    <h5>Resting electrocardiographic results : </h3> 
-                </div>
-                <div class="col-md-2">
-                    <h5>{{restecg}}</h3>
+                <div class="col-md-8">
+                    <h4>Chest Pain : </h4>
                 </div>
                 <div class="col-md-4">
-                    <h5>Slope of the peak exercise ST segment : </h3> 
+                    <h5 style="color:red">{{cp}}</h5>
                 </div>
-                <div class="col-md-2">
-                    <h5>{{slope}}</h3>
-                </div>
-                <div class="col-md-4">
-                    <h5>Slope of the peak exercise ST segment : </h3> 
-                </div>
-                <div class="col-md-2">
-                    <h5>{{slope}}</h3>
+                <div class="col-md-8">
+                    <h4>Exercise induced angina : </h4>
                 </div>
                 <div class="col-md-4">
-                    <h5>Probability of Disease : </h3> 
+                    <h5 style="color:red">{{exang}}</h5>
                 </div>
-                <div class="col-md-2">
-                    <h5>{{proba}}</h3>
+                <div class="col-md-8">
+                    <h4>Depression Value : </h4>
                 </div>
                 <div class="col-md-4">
-                    <h5>Result : </h3> 
+                    <h5 style="color:red">{{oldpeak}}</h5>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-8">
+                    <h4>Vessels colored by flourosopy : </h4>
+                </div>
+                <div class="col-md-4">
+                    <h5 style="color:red">{{ca}}</h5>
+                </div>
+                <div class="col-md-8">
+                    <h4>Thal Value : </h4>
+                </div>
+                <div class="col-md-4">
+                    <h5 style="color:red">{{thal}}</h5>
+                </div>
+                <div class="col-md-8">
+                    <h4>Fasting blood sugar > 120 mg/dl : </h4>
+                </div>
+                <div class="col-md-4">
+                    <h5 style="color:red">{{fbs}}</h5>
+                </div>
+                <div class="col-md-8">
+                    <h4>Resting electrocardiographic results : </h4>
+                </div>
+                <div class="col-md-4">
+                    <h5 style="color:red">{{restecg}}</h5>
+                </div>
+                <div class="col-md-8">
+                    <h4>Slope of the peak exercise ST segment : </h4>
+                </div>
+                <div class="col-md-4">
+                    <h5 style="color:red">{{slope}}</h5>
+                </div>
+                <div class="col-md-8">
+                    <h4>Slope of the peak exercise ST segment : </h4>
+                </div>
+                <div class="col-md-4">
+                    <h5 style="color:red">{{slope}}</h5>
+                </div>
+                <hr style="border: 1px solid red; width: 100%; background: red">
+                <div class="col-md-8">
+                    <h4>Probability of Disease : </h4>
+                </div>
+                <div class="col-md-4">
+                    <h5 style="color:red">{{proba}} %</h5>
+                </div>
+                <div class="col-md-8">
+                    <h4>Result : </h4>
+                </div>
+                <div class="col-md-4">
                     {% if result == 0 %}
-                    <h5>You are safe</h3>
+                    <h5 style="color:red">You are safe</h5>
                     {% else %}
-                    <h5>Please go to the doctor for help..</h5>
+                    <h5 style="color:red">Please go to the doctor for help..</h5>
                     {% endif %}
                 </div>
             </div>
@@ -129,74 +137,75 @@
     <div class="card">
         <div class="card-body">
             <div class="row">
-                <div class="col-md-4">
-                    <h5>Name : </h3> 
-                </div>
-                <div class="col-md-2">
-                    <h5>{{name}}</h3>
+                <div class="col-md-8">
+                    <h4>Name : </h4>
                 </div>
                 <div class="col-md-4">
-                    <h5>Age : </h3> 
+                    <h5 style="color:red">{{name}}</h5>
                 </div>
-                <div class="col-md-2">
-                    <h5>{{age}}</h3>
-                </div>
-                <div class="col-md-4">
-                    <h5>Blood Pressure : </h3> 
-                </div>
-                <div class="col-md-2">
-                    <h5>{{bp}}</h3>
+                <div class="col-md-8">
+                    <h4>Age : </h4>
                 </div>
                 <div class="col-md-4">
-                    <h5>Glucose : </h3> 
+                    <h5 style="color:red">{{age}}</h5>
                 </div>
-                <div class="col-md-2">
-                    <h5>{{glucose}}</h3>
-                </div>
-                <div class="col-md-4">
-                    <h5>Skin Thickness : </h3> 
-                </div>
-                <div class="col-md-2">
-                    <h5>{{skin}}</h3>
+                <div class="col-md-8">
+                    <h4>Blood Pressure : </h4>
                 </div>
                 <div class="col-md-4">
-                    <h5>BMI : </h3> 
+                    <h5 style="color:red">{{bp}}</h5>
                 </div>
-                <div class="col-md-2">
-                    <h5>{{bmi}}</h3>
-                </div>
-                <div class="col-md-4">
-                    <h5>Pregnancies : </h3> 
-                </div>
-                <div class="col-md-2">
-                    <h5>{{pregnancies}}</h3>
+                <div class="col-md-8">
+                    <h4>Glucose : </h4>
                 </div>
                 <div class="col-md-4">
-                    <h5>Insulin : </h3> 
+                    <h5 style="color:red">{{glucose}}</h5>
                 </div>
-                <div class="col-md-2">
-                    <h5>{{insulin}}</h3>
-                </div>
-                <div class="col-md-4">
-                    <h5>DiabetesPedigreeFunction : </h3> 
-                </div>
-                <div class="col-md-2">
-                    <h5>{{diab}}</h3>
+                <div class="col-md-8">
+                    <h4>Skin Thickness : </h4>
                 </div>
                 <div class="col-md-4">
-                    <h5>Probability of Disease : </h3> 
+                    <h5 style="color:red">{{skin}}</h5>
                 </div>
-                <div class="col-md-2">
-                    <h5>{{proba}}</h3>
+                <div class="col-md-8">
+                    <h4>BMI : </h4>
                 </div>
                 <div class="col-md-4">
-                    <h5>Result : </h3> 
+                    <h5 style="color:red">{{bmi}}</h5>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-8">
+                    <h4>Pregnancies : </h4>
+                </div>
+                <div class="col-md-4">
+                    <h5 style="color:red">{{pregnancies}}</h5>
+                </div>
+                <div class="col-md-8">
+                    <h4>Insulin : </h4>
+                </div>
+                <div class="col-md-4">
+                    <h5 style="color:red">{{insulin}}</h5>
+                </div>
+                <div class="col-md-8">
+                    <h4>DiabetesPedigreeFunction : </h4>
+                </div>
+                <div class="col-md-4">
+                    <h5 style="color:red">{{diab}}</h5>
+                </div>
+                <hr style="border: 1px solid red; width: 100%; background: red">
+                <div class="col-md-8">
+                    <h4>Probability of Disease : </h4>
+                </div>
+                <div class="col-md-4">
+                    <h5 style="color:red">{{proba}} %</h5>
+                </div>
+                <div class="col-md-8">
+                    <h4>Result : </h4>
+                </div>
+                <div class="col-md-4">
                     {% if result == 0 %}
-                    <h5>You are safe</h3>
+                    <h5 style="color:red">You are safe</h5>
                     {% else %}
-                    <h5>Please go to the doctor for help..</h5>
+                    <h5 style="color:red">Please go to the doctor for help..</h5>
                     {% endif %}
                 </div>
             </div>
@@ -210,4 +219,68 @@
     </div>
     {% endif %}
 </div>
+
+<!-- Displaying Graph  -->
+<div class="container">
+    <h4>Graph of the Accuracy and Score of the used Algorithms.</h4>
+    <div class="row graph">
+        {% for data in graph %}
+        <div class="col-md-4">
+            <canvas class="my-5" id="{{forloop.counter}}" width="400px" height="200px"></canvas>
+            <p class="accuracy" style="display: none;">{{data.accuracy}}</p>
+            <p class="score" style="display: none;">{{data.score}}</p>
+            <p class="name" style="display: none;">{{data.algo}}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- JavaScript  -->
+<script>
+    let graph = document.querySelector('.graph')
+    let allData = graph.querySelectorAll('.col-md-4')
+    Array.from(allData).forEach(element => {
+        let accuracy = element.querySelector('.accuracy').innerHTML;
+        let score = element.querySelector('.score').innerHTML;
+        let name = element.querySelector('.name').innerHTML;
+        let cardId = element.querySelector('canvas').getAttribute('id');
+        var ctx = document.getElementById(cardId).getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Accuracy', 'Score'],
+                datasets: [{
+                    barThickness: 20,
+                    label: name,
+                    data: [accuracy, score],
+                    backgroundColor: [
+                        'rgba(0, 0, 255, 1)',
+                        'rgba(47, 196, 52, 1)',
+                    ],
+                    borderColor: [
+                        'rgba(0, 0, 255, 1)',
+                        'rgba(47, 196, 52, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        categoryPercentage: 1.0,
+                        barPercentage: 1.0,
+                        gridLines: {
+                            display: false,
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            },
+        });
+    })
+</script>
 {% endblock body %}

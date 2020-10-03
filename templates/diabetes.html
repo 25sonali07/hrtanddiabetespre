@@ -7,18 +7,20 @@
 {% endblock Diabetes %}
 
 {% block body %}
-<section>
-
+<section style="background-color: goldenrod;">
+  <div class="container py-5">
+    <h2>Welcome to our website</h2>
+  </div>
 </section>
 
 
 <!-- creating a form -->
 
-<section>
-    <div class="container my-5">
+<section style="background: rgb(61, 61, 61)">
+    <div class="container py-5 text-white">
         <h4>Please fill the form to view your result. Fill the values according to their given range.</h4>
         <form action="/diabetes/test " method="POST"
-            style="border: 2px solid black; padding: 5px; border-top: 30px solid blue; border-bottom: 30px solid blue;">
+            style="border: 2px solid white; padding: 10px; border-top: 30px solid blue; border-bottom: 30px solid blue;">
             {% csrf_token %}
             <div class="row">
                 <div class="col-md-6 my-2">
@@ -53,7 +55,7 @@
                 </div>
                 <input type="hidden" class="hidden" name="distype" value="diabetes">
             </div>
-            <button class="btn btn-primary mt-4" type="submit">Submit</button>
+            <button class="btn btn-primary mt-4" type="submit">Check Yourself</button>
         </form>
     </div>
 </section>

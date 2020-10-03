@@ -27,6 +27,7 @@ urlpatterns = [
     path('diabetes', views.diabetes, name='diabetes'),
     path('diabetes/test',views.diaTest, name="diatest"),
     path('heart/test',views.heartTest, name="heart"),
+    path('contact',views.contact, name="contact"),
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
