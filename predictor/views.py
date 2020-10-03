@@ -13,7 +13,7 @@ def getdata(url):
     return json.loads(r.text)
 
 def home(request):
-    url = "https://covid19.mathdro.id/api/"
+    url = "https://covid19.mathdro.id/api/countries/india"
     data = getdata(url)
 
     sConfirmed = data['confirmed']['value']
