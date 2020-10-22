@@ -60,7 +60,7 @@ def diaTest(request):
         final_prob=round(final_prob,2)*100
         final_res = mode(result)
         # Fixing Graph Values 
-        graph = [{'accuracy':80.0,'score':69.3, 'algo':'KNN'},{'accuracy':70.0,'score':79.3, 'algo':'Logistic'},{'accuracy':60.0,'score':89.3, 'algo':'Random Forest'}]
+        graph = [{'accuracy':71.8,'score':75.5, 'algo':'KNN'},{'accuracy':75.3,'score':68.2, 'algo':'Logistic'},{'accuracy':77.5,'score':75.5, 'algo':'Random Forest'}]
 
         # Saving in database 
         diabetes = Diabetes(name=name, age=age, bp=bp, glucose=glucose, skin=skin, bmi=bmi, pregnancies=pregnancies, insulin=insulin, diab=diab, probability=final_prob, result=final_res)
@@ -111,7 +111,7 @@ def heartTest(request):
         final_prob=round(final_prob,2)*100
         final_res = mode(result)
         # Fixing Graph Values 
-        graph = [{'accuracy':80.0,'score':69.3, 'algo':'KNN'},{'accuracy':70.0,'score':79.3, 'algo':'Logistic'},{'accuracy':60.0,'score':89.3, 'algo':'Random Forest'}]
+        graph = [{'accuracy':90.7,'score':84.48, 'algo':'KNN'},{'accuracy':73.7,'score':80.5, 'algo':'Logistic'},{'accuracy':89.4,'score':81.8, 'algo':'Random Forest'}]
 
          # Saving in database
         heart = Heart(name=name, age=age, gender=gender, cp=cp, bp=bp, chol=chol, fbs=fbs, restecg=restecg, beat=beat, exang=exang, oldpeak=oldpeak, slope=slope, ca=ca, thal=thal, probability=final_prob, result=final_res)
